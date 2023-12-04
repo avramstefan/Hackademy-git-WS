@@ -1,4 +1,4 @@
-# Stefan Avram
+# Popescu Justin-Marian
 
 def sum(a, b):
     return a + b
