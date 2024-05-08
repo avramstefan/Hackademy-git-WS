@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %} 
+
+<div class="d-flex align-items-center" style="min-height: 100vh; position: relative; top: 0; left: 0; right: 0; bottom: 0;">
+  <div class="container text-center">
+  <h1 align="center">Accounts & Passwords</h1>
+  <ul class="list-group list-group-flush" id="notes">
+    <!--  parcurge toate notele utilizatorului și afișează fiecare notă într-un element de listă -->
+    {% for note in user.notes %} 
+    <li class="list-group-item note-item"> 
+      {{ note.data }}
+      <!-- un script JavaScript care apelează funcția deleteNote când utilizatorul dă clic pe butonul de ștergere al unei note -->
+      <button type="button" class="close" onClick="deleteNote('{{ note.id }}')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </li>
+    {% endfor %}
+  </ul>
+  <form method="POST">
+    <textarea name="note" id="note" class="form-control"></textarea>
+    <br />
+    <div align="center">
+      <button type="submit" class="btn btn-primary">Add new account</button>
+    </div>
+</div>
+  </div>
+  </form>
+{% endblock %}
